@@ -66,6 +66,8 @@ const authUser = asyncHandler(async(req,res) => {
 //user searching function
 const allUsers = asyncHandler(async (req,res) =>{
     //req.params = getting the ids, req.query = getting the query
+
+    //the keyword here returns the regex expression(if true)
     const keyword = req.query.search 
     ? {
         $or: [
@@ -74,9 +76,8 @@ const allUsers = asyncHandler(async (req,res) =>{
         ]
     }: {}
 
-    //the keyword here returns the regex expression(if true)
     // the regex is passed to the mongodb find(keyboard) to execute semantic search
-    const users = await User.find(keyword).find({_id:{$ne:req.user._id}})
+    const users = await User.find(keyword).find({_id: { $ne:req.user._id } })
     res.send(users);
 
 })

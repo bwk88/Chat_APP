@@ -7,7 +7,7 @@ const chatModel = mongoose.Schema(
         users: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Users", //the User Model
+                ref: "User", //the User Model
 
             }
         ],
@@ -17,7 +17,7 @@ const chatModel = mongoose.Schema(
         },
         groupAdmin: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Users"
+            ref: "User"
         }
     },{timestamps: true}
 )
