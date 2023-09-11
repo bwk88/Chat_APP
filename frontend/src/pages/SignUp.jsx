@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const SignUp = ({ page, setPage }) => {
+const SignUp = () => {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [confirmpassword,setConfirmpassword] = useState("");
     const [password,setPassword] = useState("");
-    const [pic,setPic] = useState("");
+    // const [pic,setPic] = useState("");
     const history = useHistory();
 
     // console.log(name);
-    const submitHandler = async () =>{
+    const submitHandler = async (e) =>{
+        e.preventDefault()
         if( !name || !email || !password || !confirmpassword ){
             return alert("please fillup all feilds"); 
         }
@@ -61,11 +62,11 @@ const SignUp = ({ page, setPage }) => {
                 onChange={(e)=>{setConfirmpassword(e.target.value)}}
                 />
 
-                <button className="bg-slate-500 hover:bg-slate-700 text-white text-base rounded-lg py-2.5 px-5 transition-colors w-full text-[19px]" onClick={submitHandler}>Log In</button>
+                <button className="bg-slate-500 hover:bg-slate-700 text-white text-base rounded-lg py-2.5 px-5 transition-colors w-full text-[19px]" onClick={submitHandler}>Sign Up</button>
             </form>
 
             <p className="text-center mt-3 text-[14px]">Already have an account? 
-                <a href="/chats" className="text-gray-600" > Log In</a>
+                <a href="/login" className="text-gray-600" > Log In</a>
             </p>
             <p className="text-center mt-3 text-[14px]">By clicking continue, you agree to our 
                 <a href="/terms" className="text-gray-600">Terms of Service</a> and <a href="/privacy" className="text-gray-600">Privacy Policy</a>.
