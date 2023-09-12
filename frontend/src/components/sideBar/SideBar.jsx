@@ -30,7 +30,7 @@ const SideBar = ({ flag,setFlag }) => {
            
 
             setSearchResult(data);
-            // console.log(search);
+            // console.log(data);
         } catch (error) {
             console.log(error);
             alert("Error Occured");
@@ -62,7 +62,7 @@ const SideBar = ({ flag,setFlag }) => {
     <>
         <div className={`${flag ? ' w-80': 'w-[60px]'} flex-col justify-center items-center duration-500 top-0 left-0 fixed  bg-[#262626] h-full  `}>
                 <img src=" assets/left.png" alt="" className={` 
-                ${flag && `border-[2.5px]` && `border-[#262626]` && `rotate-0 ` } duration-700 rotate-180
+                ${flag && `border-[2.5px]` && `border-[#262626]` && `rotate-0` } duration-700 rotate-180
                 absolute w-[3.5rem] h-[3.5rem] -right-4
                 top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 `}
                 onClick={()=>setFlag(!flag)} > 

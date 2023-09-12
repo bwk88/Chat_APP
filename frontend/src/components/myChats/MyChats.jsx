@@ -7,7 +7,7 @@ const MyChats = () => {
   const [loggedUser,setLoggedUser] = useState();
   const { user, setSelectedChat,chats,setChats } = ChatState();
 
-  const fetchChats = async() =>{
+  const fetchChats = async () =>{
     try {
         const config = {
           headers: {
@@ -27,11 +27,19 @@ const MyChats = () => {
   
   useEffect(()=>{
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
-    fetchChats();
-  },[]);
+    // fetchChats();
+  }, []);
 
   return (
-    <div>MyChats</div>
+    <div>
+      <button onClick={fetchChats}>
+        {chats && chats.map((user)=>(
+          <li key={user._id} className=" text-black">
+            {console.log(user.users)}
+          </li>
+        ))}  
+      </button> 
+    </div>
   )
 }
 
