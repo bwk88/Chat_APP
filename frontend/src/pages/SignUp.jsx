@@ -37,6 +37,10 @@ const SignUp = () => {
         }
         
     }
+    const handleClick = (e) =>{
+        // e.preventDefault();
+        history.push('/login')
+    }
   return (
 <div className="max-w-[280px] mx-auto">
         <div className="flex flex-col items-center mt-[10vh]">
@@ -66,7 +70,7 @@ const SignUp = () => {
             </form>
 
             <p className="text-center mt-3 text-[14px]">Already have an account? 
-                <a href="/login" className="text-gray-600" > Log In</a>
+                <button className="text-gray-600" onClick={handleClick} > Log In</button>
             </p>
             <p className="text-center mt-3 text-[14px]">By clicking continue, you agree to our 
                 <a href="/terms" className="text-gray-600">Terms of Service</a> and <a href="/privacy" className="text-gray-600">Privacy Policy</a>.

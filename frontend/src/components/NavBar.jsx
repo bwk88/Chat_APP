@@ -1,11 +1,17 @@
 import { useState } from "react"
 // import { ChatState } from "../Context/ChatProvider";
 import SideBar from "./sideBar/SideBar";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const  NavBar = () => {
     // const[search,setSearch] = useState();
     // const[searchResult,setSearchResult] = useState();
+    const history = useHistory();
     const [flag,setFlag] = useState(false);
+    const logoutHandler = () =>{
+      localStorage.removeItem("userInfo");
+      history.push("/");
+    }
 
     // const {user} = ChatState();
 
@@ -14,7 +20,9 @@ const  NavBar = () => {
           <SideBar flag={flag} setFlag={setFlag} />
 
 
-        <div>Log Out</div>
+        <button onClick={logoutHandler}>
+          Log out
+        </button>
 
         
     </div>

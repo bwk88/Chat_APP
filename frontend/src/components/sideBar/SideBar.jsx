@@ -30,13 +30,14 @@ const SideBar = ({ flag,setFlag }) => {
            
 
             setSearchResult(data);
-            // console.log(data);
+            console.log(data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             alert("Error Occured");
         }
     }
 
+    //chat Create function
     const accessChat = async (userId) =>{
         try {
             const config = {
@@ -48,7 +49,7 @@ const SideBar = ({ flag,setFlag }) => {
 
             const { data } = await axios.post('http://localhost:5000/api/chat', {userId},config);
 
-            if(!chats.find((c) => c.id === data._id)) setChats([data,...chats]);
+            if(!chats.find((c) => c.id === data._id)) setChats([data,...chats]); 
 
             setSelectedChat(data);
             // console.log(data);
@@ -62,14 +63,14 @@ const SideBar = ({ flag,setFlag }) => {
     <>
         <div className={`${flag ? ' w-80': 'w-[60px]'} flex-col justify-center items-center duration-500 top-0 left-0 fixed  bg-[#262626] h-full  `}>
                 <img src=" assets/left.png" alt="" className={` 
-                ${flag && `border-[2.5px]` && `border-[#262626]` && `rotate-0` } duration-700 rotate-180
+                ${flag  && `rotate-180` } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4
-                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 `}
+                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0`}
                 onClick={()=>setFlag(!flag)} > 
                 
                 </img> 
 
-            <form className={`${!flag && 'hidden' } duration-500  flex  items-center justify-end  w-64 p-7 top-0 `}>
+            <form className={`${flag ? 'flex': 'hidden' } transition-all duration-500 items-center justify-end  w-64 p-7 top-0 `}>
                 <input type="text" className=" w-[12rem] relative left-[3rem]  " value={search} onChange={(e)=> setSearch(e.target.value)} ></input>
                 <button className="relative left-20 bottom-1" onClick={handleSearch} >Search</button>
 

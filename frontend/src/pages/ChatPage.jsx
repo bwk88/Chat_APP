@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { ChatState } from "../Context/ChatProvider";
+// import { ChatState } from "../Context/ChatProvider";
 import MyChats from "../Components/MyChats/MyChats";
 import ChatBox from "../Components/ChatBox/ChatBox";
 
@@ -9,11 +9,11 @@ const ChatPage = () => {
 
   return (
     // <div className="flex items-end"> 
-      <div className='w-[calc(100%-60px)] absolute right-0'>
+      <div className='w-[calc(100%-60px)] absolute right-0 font-sans font-normal '>
         {/* hello */}
         <NavBar />
 
-        <div className="flex justify-between w-full p-5 dhruv@gmail.com">
+        <div className="flex justify-between w-full p-5  ">
           <MyChats />
           <ChatBox />
         </div>

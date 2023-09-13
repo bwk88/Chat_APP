@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const LoginPage = () => {
+    // e.preventDefault();
     // const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     // const [confirmpassword,setConfirmpassword] = useState("");
@@ -30,7 +31,7 @@ const LoginPage = () => {
 
             const { data } = await axios.post("http://localhost:5000/api/user/login",{email,password},config)
 
-            console.log(data);
+            // console.log(data);
 
             alert("Registration Successful");
             localStorage.setItem("userInfo",JSON.stringify(data));

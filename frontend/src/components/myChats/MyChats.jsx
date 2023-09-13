@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
+import MyModal from "../modal/MyModal";
 
 
 const MyChats = () => {
+  const [showModal,setShowModal] = useState(false);
   const [loggedUser,setLoggedUser] = useState();
-  const { user, setSelectedChat,chats,setChats } = ChatState();
+  const { user,selectedChat, setSelectedChat,chats,setChats } = ChatState();
+
+  // console.log(chats)
+  const handleClose = () => setShowModal(!showModal);
 
   const fetchChats = async () =>{
+    console.log("here");
     try {
         const config = {
           headers: {
@@ -31,14 +37,40 @@ const MyChats = () => {
   }, []);
 
   return (
-    <div>
-      <button onClick={fetchChats}>
-        {chats && chats.map((user)=>(
-          <li key={user._id} className=" text-black">
-            {console.log(user.users)}
-          </li>
-        ))}  
-      </button> 
+    <div
+    className={` ${selectedChat ? `hidden` : `flex` } flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl
+    md:flex bottom-2 border-black `}>
+
+      <div className=" flex justify-between p-2">
+
+        <h1 className=" text-lg" >My chats</h1>
+
+        <button onClick={()=>setShowModal(!showModal)}>
+          <img src="assets/add_icon.png" className=" w-[30px]" alt=""  />
+        </button>
+
+      </div>
+
+      <div className=" text-black flex-col ">
+        {chats && chats.map((chat)=>(
+          <div onClick={()=>setSelectedChat(chat)}
+              
+              className={
+
+              `${selectedChat === chat ? `bg-[#262626]`:` bg-[#44d7b6]`} 
+               ${selectedChat === chat ? ` text-white`:` text-black`} 
+              p-10 m-5 flex 
+              justify-center 
+               rounded-xl
+              items-center cursor-pointer `
+
+            }
+            key={chat._id}>
+            {chat.users[1].name}
+          </div>
+        ))}
+      </div>
+      <MyModal visible={showModal} onClose={handleClose} />
     </div>
   )
 }
