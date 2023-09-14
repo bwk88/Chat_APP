@@ -25,7 +25,7 @@ const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
                 <>
                     <div> {selectedChat.users[1].name} </div>
                     <PreviewIcon className=' absolute right-0 mx-8 cursor-pointer ' 
-                    // onClick={()=>setShowModal(!showModal)}
+                    onClick={()=>setShowModal(!showModal)}
                     
                     fontSize='large'
                     

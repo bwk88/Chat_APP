@@ -11,11 +11,11 @@ const MyModal = ({visible ,onClose }) => {
   return (
     <div id="container"
     onClick={handleClose}
-    className=" fixed flex inset-0 bg-black bg-opacity-30 backdrop-blur-sm justify-center items-center z-10"
+    className=" fixed flex font-Promt text-lg font-light inset-0 bg-black bg-opacity-10 backdrop-blur-sm justify-center items-center z-10"
     >
       
-      <GroupChatModal />
-      {/* <ViewModal /> */}
+      {/* <GroupChatModal /> */}
+      <ViewModal />
         
     </div>
   )

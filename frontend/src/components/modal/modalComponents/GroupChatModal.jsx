@@ -90,7 +90,7 @@ const GroupChatModal = () => {
   return (
     <div className=" flex justify-center items-center w-1/3 h-1/2 rounded-lg bg-white">
         <div className=" flex-col items-center justify-center" >
-        <form >
+        <form className=" flex-col" >
             <center>
             <label>Create Group</label>
             </center> 
