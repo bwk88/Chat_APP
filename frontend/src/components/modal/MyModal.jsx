@@ -1,4 +1,5 @@
 import GroupChatModal from "./modalComponents/GroupChatModal";
+import ViewModal from "./modalComponents/ViewModal";
 
 const MyModal = ({visible ,onClose }) => {
     if(!visible) return null;
@@ -14,6 +15,7 @@ const MyModal = ({visible ,onClose }) => {
     >
       
       <GroupChatModal />
+      {/* <ViewModal /> */}
         
     </div>
   )

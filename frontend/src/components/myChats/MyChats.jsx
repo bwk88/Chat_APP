@@ -5,9 +5,8 @@ import MyModal from "../modal/MyModal";
 
 
 const MyChats = ({ fetchAgain }) => {
-  const [showModal,setShowModal] = useState(false);
   const [loggedUser,setLoggedUser] = useState();
-  const { user,selectedChat, setSelectedChat,chats,setChats } = ChatState();
+  const { user,selectedChat, setSelectedChat,chats,setChats,showModal,setShowModal } = ChatState();
 
   // console.log(chats)
   const handleClose = () => setShowModal(!showModal);

@@ -3,7 +3,7 @@ import ChatBoxHeader from "../chatBoxHeader/chatBoxHeader";
 
 const ChatBox = ({fetchAgain,setFetchAgain}) => {
   const { selectedChat } = ChatState();
-  console.log(selectedChat)
+  // console.log(selectedChat)
   return (
     <div className=" relative flex items-center justify-center bg-[#f9f9f9] h-[90vh] w-[68%] shadow-2xl">
       <ChatBoxHeader />
