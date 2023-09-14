@@ -4,7 +4,7 @@ import axios from "axios";
 import MyModal from "../modal/MyModal";
 
 
-const MyChats = () => {
+const MyChats = ({ fetchAgain }) => {
   const [showModal,setShowModal] = useState(false);
   const [loggedUser,setLoggedUser] = useState();
   const { user,selectedChat, setSelectedChat,chats,setChats } = ChatState();
@@ -13,7 +13,7 @@ const MyChats = () => {
   const handleClose = () => setShowModal(!showModal);
 
   const fetchChats = async () =>{
-    console.log("here");
+    // console.log("here");
     try {
         const config = {
           headers: {
@@ -33,17 +33,16 @@ const MyChats = () => {
   
   useEffect(()=>{
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
-    // fetchChats();
-  }, []);
+    fetchChats();
+  }, [fetchAgain]);
 
   return (
     <div
-    className={` ${selectedChat ? `hidden` : `flex` } flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl
-    md:flex bottom-2 border-black `}>
+    className={` ${selectedChat ? `hidden` : `flex ` } flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl sm:flex bottom-2 border-black `}>
 
       <div className=" flex justify-between p-2">
 
-        <h1 className=" text-lg" >My chats</h1>
+        <h1 className=" p-1 rounded-md font-sans font-medium  text-2xl text-[#262626]" >My chats</h1>
 
         <button onClick={()=>setShowModal(!showModal)}>
           <img src="assets/add_icon.png" className=" w-[30px]" alt=""  />
@@ -59,14 +58,17 @@ const MyChats = () => {
 
               `${selectedChat === chat ? `bg-[#262626]`:` bg-[#44d7b6]`} 
                ${selectedChat === chat ? ` text-white`:` text-black`} 
-              p-10 m-5 flex 
-              justify-center 
-               rounded-xl
-              items-center cursor-pointer `
-
+              p-5 m-2
+              
+              rounded-xl
+              cursor-pointer
+               
+              `
+              
             }
             key={chat._id}>
-            {chat.users[1].name}
+              {/* if chat is type Group chat then show group chat name else show chat user name */}
+              {chat.isGroupChat ? chat.chatname : chat.users[1].name } 
           </div>
         ))}
       </div>

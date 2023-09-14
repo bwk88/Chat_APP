@@ -2,20 +2,27 @@ import NavBar from "../components/NavBar";
 // import { ChatState } from "../Context/ChatProvider";
 import MyChats from "../Components/MyChats/MyChats";
 import ChatBox from "../Components/ChatBox/ChatBox";
+import { ChatState } from "../Context/ChatProvider";
+import { useState } from "react";
 
 const ChatPage = () => {
-  // const { user } = ChatState();
+  const { user } = ChatState();
   // console.log(user.name);
+  const [fetchAgain,setFetchAgain] = useState();
 
   return (
     // <div className="flex items-end"> 
-      <div className='w-[calc(100%-60px)] absolute right-0 font-sans font-normal '>
+      <div className='w-[calc(100%-60px)] absolute right-0 font-Promt font-light '>
         {/* hello */}
-        <NavBar />
+        {user
+         && 
+         <NavBar />
+        }
 
         <div className="flex justify-between w-full p-5  ">
-          <MyChats />
-          <ChatBox />
+          {user && <MyChats fetchAgain={fetchAgain} /> }
+          {user && <ChatBox fetchAgain={fetchAgain}  setFetchAgain=
+          {setFetchAgain}/> }
         </div>
       </div>
 

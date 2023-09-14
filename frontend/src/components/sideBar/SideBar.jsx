@@ -36,7 +36,7 @@ const SideBar = ({ flag,setFlag }) => {
             alert("Error Occured");
         }
     }
-
+    // console.log(searchResult)
     //chat Create function
     const accessChat = async (userId) =>{
         try {
@@ -70,11 +70,16 @@ const SideBar = ({ flag,setFlag }) => {
                 
                 </img> 
 
-            <form className={`${flag ? 'flex': 'hidden' } transition-all duration-500 items-center justify-end  w-64 p-7 top-0 `}>
-                <input type="text" className=" w-[12rem] relative left-[3rem]  " value={search} onChange={(e)=> setSearch(e.target.value)} ></input>
-                <button className="relative left-20 bottom-1" onClick={handleSearch} >Search</button>
+            {/* <form className={`${flag ? 'flex ': 'hidden' }  
+            transition delay-150 duration-300 ease-in-out items-center justify-end  w-64 p-7 top-0`}> */}
+            <div className={`${flag ? 'flex' : `hidden transition-all delay-150`}  
+             items-center justify-end  w-64 p-7 top-0`}>
 
-            </form>
+                <input type="text" placeholder="Search Users" className=" w-[12rem] relative left-[3rem]  " value={search} onChange={(e)=> setSearch(e.target.value)} ></input>
+                <button className=" bg-[#16c28c] rounded-md p-2 relative left-20 bottom-1" onClick={handleSearch} >Search</button>
+            </div>
+
+            {/* </form> */}
             <div className=" relative  text-white">
                 {searchResult&& searchResult?.map(user=>(
                     <UserList 
