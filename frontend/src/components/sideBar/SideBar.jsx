@@ -4,7 +4,8 @@ import UserList from "./UserList";
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
-const SideBar = ({ flag,setFlag }) => {
+const SideBar = () => {
+    const [flag,setFlag] = useState(false);
     const [search,setSearch] = useState();
     const [searchResult,setSearchResult] = useState([]);
 
@@ -65,19 +66,19 @@ const SideBar = ({ flag,setFlag }) => {
                 <img src=" assets/left.png" alt="" className={` 
                 ${flag  && `rotate-180` } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4
-                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0`}
+                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0 hover:scale-110`}
                 onClick={()=>setFlag(!flag)} > 
                 
                 </img> 
 
-            {/* <form className={`${flag ? 'flex ': 'hidden' }  
-            transition delay-150 duration-300 ease-in-out items-center justify-end  w-64 p-7 top-0`}> */}
-            <div className={`${flag ? 'flex' : `hidden transition-all delay-150`}  
+             <div className={`${flag ? 'opacity-1 transition-all delay-500 ' : `opacity-0  w-[0] `} flex
              items-center justify-end  w-64 p-7 top-0`}>
 
                 <input type="text" placeholder="Search Users" className=" w-[12rem] relative left-[3rem]  " value={search} onChange={(e)=> setSearch(e.target.value)} ></input>
                 <button className=" bg-[#16c28c] rounded-md p-2 relative left-20 bottom-1" onClick={handleSearch} >Search</button>
             </div>
+            
+            
 
             {/* </form> */}
             <div className=" relative  text-white">

@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 // import { ChatState } from "../Context/ChatProvider";
-import MyChats from "../Components/MyChats/MyChats";
+import MyChats from "../components/myChats/MyChats";
 import ChatBox from "../Components/ChatBox/ChatBox";
 import { ChatState } from "../Context/ChatProvider";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { useState } from "react";
 const ChatPage = () => {
   const { user } = ChatState();
   // console.log(user.name);
-  const [fetchAgain,setFetchAgain] = useState();
+  const [fetchAgain,setFetchAgain] = useState(); //to keep track of all the chats
 
   return (
     // <div className="flex items-end"> 

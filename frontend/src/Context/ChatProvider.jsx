@@ -8,7 +8,8 @@ const ChatProvider = ({children}) => {
     const [selectedChat,setSelectedChat] = useState();
     const [chats,setChats] = useState([]);
     const [showModal,setShowModal] = useState(false);
-    console.log(selectedChat)
+    // console.log(chats)
+    // console.log(selectedChat)
 
     const history = useHistory();
 

@@ -1,11 +1,11 @@
 import { useState } from "react"
 import axios from "axios";
 import { ChatState } from "../../../Context/ChatProvider";
-import UserList from "../../sideBar/UserList";
+// import UserList from "../../sideBar/UserList";
 import CloseIcon from '@mui/icons-material/Close';
 
 
-const GroupChatModal = () => {
+const AddGroupChatModal = () => {
   const [groupChatName,setGroupChatName] = useState();
   const [search,setSearch] = useState();
   const [searchResult,setSearchResult] = useState([]);
@@ -71,10 +71,11 @@ const GroupChatModal = () => {
       }
       const { data } = await axios.post("http://localhost:5000/api/chat/group",{
         name: groupChatName,
-        users:JSON.stringify(selectedUsers.map(u=>u._id))
+        users: JSON.stringify(selectedUsers.map(u=>u._id))
       },config);
 
       setChats([data,...chats]) // data before chats, cuz adding to the of all the chats
+      console.log(chats)
       alert("Group Created");
 
 
@@ -141,4 +142,4 @@ const GroupChatModal = () => {
   )
 }
 
-export default GroupChatModal
+export default AddGroupChatModal

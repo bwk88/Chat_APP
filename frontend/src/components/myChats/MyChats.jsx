@@ -8,7 +8,7 @@ const MyChats = ({ fetchAgain }) => {
   const [loggedUser,setLoggedUser] = useState();
   const { user,selectedChat, setSelectedChat,chats,setChats,showModal,setShowModal } = ChatState();
 
-  // console.log(chats)
+  console.log(chats)
   const handleClose = () => setShowModal(!showModal);
 
   const fetchChats = async () =>{
@@ -21,7 +21,7 @@ const MyChats = ({ fetchAgain }) => {
       }
 
       const { data } = await axios.get('http://localhost:5000/api/chat',config);
-      // console.log(data);
+      console.log(data);
       setChats(data);
 
     } catch (error) {
@@ -61,6 +61,7 @@ const MyChats = ({ fetchAgain }) => {
               
               rounded-xl
               cursor-pointer
+               hover:bg-[#262626] hover:text-white
                
               `
               

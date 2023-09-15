@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes')
+const messageRoutes = require('./routes/messageRoutes')
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/api/user',userRoutes);
 app.use('/api/chat',chatRoutes);
+app.use('/api/message',messageRoutes);
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
     app.listen(process.env.PORT,console.log("DB connected and Server started on PORT", process.env.PORT))
