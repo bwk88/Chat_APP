@@ -66,12 +66,12 @@ const SideBar = () => {
                 <img src=" assets/left.png" alt="" className={` 
                 ${flag  && `rotate-180` } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4
-                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0 hover:scale-110`}
+                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0 hover:scale-110 hover:border-[0px]`}
                 onClick={()=>setFlag(!flag)} > 
                 
                 </img> 
 
-             <div className={`${flag ? 'opacity-1 transition-all delay-500 ' : `opacity-0  w-[0] `} flex
+             <div className={`${flag ? 'opacity-1 transition-all delay-700' : `opacity-0  w-[0] `} flex
              items-center justify-end  w-64 p-7 top-0`}>
 
                 <input type="text" placeholder="Search Users" className=" w-[12rem] relative left-[3rem]  " value={search} onChange={(e)=> setSearch(e.target.value)} ></input>

@@ -1,9 +1,11 @@
 
 // import { ChatState } from "../Context/ChatProvider";
+import { ChatState } from "../Context/ChatProvider";
 import SideBar from "./sideBar/SideBar";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const  NavBar = () => {
+  const { user } = ChatState();
     const history = useHistory();
 
 
@@ -19,7 +21,7 @@ const  NavBar = () => {
 
 
         <button onClick={logoutHandler}>
-          Log out
+          {user.name}
         </button>
 
         

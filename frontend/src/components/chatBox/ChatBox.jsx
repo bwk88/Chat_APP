@@ -1,5 +1,7 @@
 import { ChatState } from "../../Context/ChatProvider"
 import ChatBoxHeader from "../chatBoxHeader/chatBoxHeader";
+import ChatInput from "./ChatInput";
+// import ChatDisplay from "./ChatDisplay";
 
 const ChatBox = ({fetchAgain,setFetchAgain}) => {
   const { selectedChat } = ChatState();
@@ -9,7 +11,10 @@ const ChatBox = ({fetchAgain,setFetchAgain}) => {
       <ChatBoxHeader />
 
       { selectedChat ? (
-        <div className=" flex justify-center items-center absolute bg-[#e0e0e0] h-[85%] w-[95%] top-[5rem] rounded-2xl"> </div>
+        <div className=" flex absolute bg-[#e0e0e0] h-[85%] w-[95%] top-[5rem] rounded-2xl">
+
+          <ChatInput />
+        </div>
 
       ) : (
             <div> Click on user to start chatting </div>

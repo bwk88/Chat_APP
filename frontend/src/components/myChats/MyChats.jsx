@@ -8,7 +8,7 @@ const MyChats = ({ fetchAgain }) => {
   const [loggedUser,setLoggedUser] = useState();
   const { user,selectedChat, setSelectedChat,chats,setChats,showModal,setShowModal } = ChatState();
 
-  console.log(chats)
+  // console.log(chats)
   const handleClose = () => setShowModal(!showModal);
 
   const fetchChats = async () =>{
@@ -21,11 +21,11 @@ const MyChats = ({ fetchAgain }) => {
       }
 
       const { data } = await axios.get('http://localhost:5000/api/chat',config);
-      console.log(data);
+      // console.log(data);
       setChats(data);
 
     } catch (error) {
-      console.log(error.message)
+      // console.log(error.message)
       alert("Error Occured");
     }
   }
@@ -68,7 +68,9 @@ const MyChats = ({ fetchAgain }) => {
             }
             key={chat._id}>
               {/* if chat is type Group chat then show group chat name else show chat user name */}
-              {chat.isGroupChat ? chat.chatname : chat.users[1].name } 
+              {chat.isGroupChat ? chat.chatname : 
+              chat.users[0]._id === loggedUser._id ? chat.users[1].name :
+              chat.users[0].name } 
           </div>
         ))}
       </div>
