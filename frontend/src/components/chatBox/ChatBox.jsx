@@ -7,7 +7,7 @@ const ChatBox = ({fetchAgain,setFetchAgain}) => {
   const { selectedChat } = ChatState();
   // console.log(selectedChat)
   return (
-    <div className=" relative flex items-center justify-center bg-[#f9f9f9] h-[90vh] w-[68%] shadow-2xl rounded-2xl">
+    <div className=" relative flex items-center ms justify-center bg-[#f9f9f9] h-[90vh] w-[68%] shadow-2xl rounded-2xl">
       <ChatBoxHeader />
 
       { selectedChat ? (

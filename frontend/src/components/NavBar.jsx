@@ -19,9 +19,10 @@ const  NavBar = () => {
     <div className="flex items-center justify-between bg-[#44d7b6] text-black w-full p-2 ">
           <SideBar />
 
+        <h1>{user.name}</h1>
 
         <button onClick={logoutHandler}>
-          {user.name}
+          Logout
         </button>
 
         

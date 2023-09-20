@@ -9,6 +9,7 @@ const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
 
 
     const handleClose = () => setInfo(!info);
+    // console.log(selectedChat)
 
     
     
@@ -18,7 +19,7 @@ const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
 
     {selectedChat &&   
 
-        <div className=" flex items-center absolute top-0 text-2xl font-serif font-medium left-0 my-2 p-2 w-full">
+        <div className=" flex items-center absolute top-0 text-2xl font-Promt font-medium left-0 my-2 mx-3 p-2 w-full">
 
             {selectedChat.isGroupChat ? (
                 <>
@@ -29,7 +30,12 @@ const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
                 </>
             ):(
                 <>
-                    <div> {selectedChat.users[1].name} </div>
+                    <div> {user._id === selectedChat.users[0]._id ? (
+                        <span> {selectedChat.users[1].name} </span>
+                    ):(
+                        <span>{selectedChat.users[0].name} </span>
+                    )
+                    } </div>
                     <PreviewIcon className=' absolute right-0 mx-8 cursor-pointer ' 
                     onClick={()=>setInfo(!info)}
                     

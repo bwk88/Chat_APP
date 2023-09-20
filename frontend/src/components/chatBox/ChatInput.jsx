@@ -3,6 +3,8 @@ import { ChatState } from "../../Context/ChatProvider";
 import ChatDisplay from "./ChatDisplay";
 import axios from "axios";
 import io from 'socket.io-client'
+import Lottie from 'lottie-react'
+import animationData from '../animations/typing.json'
 
 const ENDPOINT = "http://localhost:5000";
 var socket,selectedChatCompare;
@@ -10,13 +12,21 @@ var socket,selectedChatCompare;
 const ChatInput = ({fetchAgain, setFetchAgain}) => {
 
     const [newMessage,setNewMessage] = useState();
+    const [typing,setTyping] = useState(false);
     const [messages,setMessages] = useState([]);
     const [socketConnected,setSocketConnected] = useState(false);
     const { user,selectedChat,setSelectedChat } = ChatState();
 
     const typingHandler = (event) =>{
-        // event.preventDefault();
         setNewMessage(event.target.value);
+        // event.preventDefault();
+        if(!typing){
+            setTyping(true);
+        }
+
+        setTimeout(()=>{
+            setTyping(false);
+        },3000)
 
     }
 
@@ -103,6 +113,11 @@ const ChatInput = ({fetchAgain, setFetchAgain}) => {
     </div>
     <div className=" absolute -bottom-[25px]  p-4 w-[100%]">
         <form onKeyDown={sendMessage}>
+            {typing &&
+            <Lottie
+             style={{width:'70px', margin:'5px'}}
+                animationData={animationData}
+            /> }
         <input value={newMessage}
         onChange={typingHandler}
          className="bg-[#e0e0e0] border-0.5 rounded-3xl border-black">

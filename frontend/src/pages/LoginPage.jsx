@@ -43,30 +43,43 @@ const LoginPage = () => {
         
     }
   return (
-<div className="max-w-[280px] flex-col justify-center items-center  mx-auto">
-        <div className="flex flex-col items-center mt-[10vh]">
-            <h2 className="mb-5 text-gray-900 font-mono font-bold text-xl">Log In</h2>
-            <form >
-                <input type="text" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Email"
-                value={email}
-                onChange={(e)=>{setEmail(e.target.value)}}
-                />
+<div className="flex w-full h-screen">
 
-                <input type="password" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Password"
-                 value={password}
-                 onChange={(e)=>{setPassword(e.target.value)}}
-                 />
-
-{/* 
-                <input type="password" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Confirm password" value={confirmpassword}
-                onChange={(e)=>{setConfirmpassword(e.target.value)}}
-                /> */}
+        <div className='relative hidden lg:flex h-full w-full bg-gray-200 items-center justify-center'>
+          <div className='w-60 h-60 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full   hover:animate-spin'></div>
+          <div className='absolute w-full h-1/2 bg-white/10 backdrop-blur-lg bottom-0'></div>
+        </div>
 
 
-                <button className="bg-slate-500 hover:bg-slate-700 text-white text-base rounded-lg py-2.5 px-5 transition-colors w-full text-[19px]" onClick={submitHandler}>Log In</button>
-            </form>
+    
+        <div className="w-full flex items-center justify-center lg:w-full">
+            <div className="max-w-[280px] mx-auto">
+                <h2 
+                className="mb-5 text-gray-900 
+                font-mono font-bold
+                text-xl text-center">Log In
+                </h2>
+                <form >
+                    <input type="text" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Email"
+                    value={email}
+                    onChange={(e)=>{setEmail(e.target.value)}}
+                    />
+
+                    <input type="password" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Password"
+                    value={password}
+                    onChange={(e)=>{setPassword(e.target.value)}}
+                    />
+
+
+                    <button className="bg-slate-500 hover:bg-slate-700 text-white text-base rounded-lg py-2.5 px-5 transition-colors w-full text-[19px]" onClick={submitHandler}>Log In</button>
+                </form>
+
+            </div>
+            
 
         </div>
+
+
     </div>
   )
 }

@@ -38,7 +38,7 @@ const MyChats = ({ fetchAgain }) => {
 
   return (
     <div
-    className={` ${selectedChat ? `hidden` : `flex ` } flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl sm:flex bottom-2 border-black `}>
+    className={` ${selectedChat ? `` : `` } overflow-auto flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl  bottom-2 border-black `}>
 
       <div className=" flex justify-between p-2">
 
@@ -50,9 +50,11 @@ const MyChats = ({ fetchAgain }) => {
 
       </div>
       <>
-      <ScrollableFeed>
+      {/* <ScrollableFeed > */}
         <div className=" text-black flex-col ">
           {chats && chats.map((chat)=>(
+            
+
             <div onClick={()=>setSelectedChat(chat)}
                 
                 className={
@@ -60,11 +62,9 @@ const MyChats = ({ fetchAgain }) => {
                 `${selectedChat === chat ? `bg-[#262626]`:` bg-[#44d7b6]`} 
                 ${selectedChat === chat ? ` text-white`:` text-black`} 
                 p-5 m-2
-                
                 rounded-xl
                 cursor-pointer
                 hover:bg-[#262626] hover:text-white
-                
                 `
                 
               }
@@ -74,9 +74,10 @@ const MyChats = ({ fetchAgain }) => {
                 chat.users[0]._id === loggedUser._id ? chat.users[1].name :
                 chat.users[0].name } 
             </div>
+            
           ))}
         </div>
-      </ScrollableFeed>
+      {/* </ScrollableFeed> */}
       
       </>
 

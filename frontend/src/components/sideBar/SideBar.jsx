@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ChatState } from "../../Context/ChatProvider";
 import UserList from "./UserList";
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
@@ -81,7 +82,7 @@ const SideBar = () => {
             
 
             {/* </form> */}
-            <div className=" relative  text-white">
+            <div className={`${flag ? 'opacity-1 transition-all delay-700' : `opacity-0  w-[0] `}`}>
                 {searchResult&& searchResult?.map(user=>(
                     <UserList 
                         key={user._id}
@@ -89,11 +90,13 @@ const SideBar = () => {
                         flag={flag}
                         handleFunction={()=>accessChat(user._id)}
                     />
-                ))}
+                ))
+                }
             </div>
 
         </div>
-        <button onClick={()=>setFlag(!flag)}>Search</button>
+        <PersonSearchOutlinedIcon />
+        {/* <button onClick={()=>setFlag(!flag)}>Search</button> */}
     </>
 
   )

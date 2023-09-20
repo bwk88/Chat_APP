@@ -68,7 +68,10 @@ io.on("connection" ,(socket)=> {
             //if user is inside the users room, then emit
             socket.in(user._id).emit("message recieved", newMessageRecieved)
         });
+    })
 
-
+    socket.off("setup",()=>{
+        console.log("USER DISCONECTED");
+        socket.leave(userData._id)
     })
 })
