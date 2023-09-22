@@ -8,7 +8,7 @@ const ChatProvider = ({children}) => {
     const [selectedChat,setSelectedChat] = useState();
     const [chats,setChats] = useState([]);
     const [showModal,setShowModal] = useState(false);
-    // console.log(chats)
+    // console.log(user)
     // console.log(selectedChat)
 
     const history = useHistory();
@@ -16,8 +16,9 @@ const ChatProvider = ({children}) => {
     useEffect(()=>{
         const userInfo = JSON.parse(localStorage.getItem("userInfo")) 
         setUser(userInfo);
-
+        
         if(!userInfo) {
+            console.log(userInfo);
             history.push('/')
         }
     },[history]);

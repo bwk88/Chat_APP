@@ -1,6 +1,8 @@
 import  { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Lottie from 'lottie-react';
+import animationData from '../components/animations/ChatBubble.json'
 
 const SignUp = () => {
     const [name,setName] = useState("");
@@ -43,7 +45,10 @@ const SignUp = () => {
     }
   return (
 <div className="max-w-[280px] mx-auto">
-        <div className="flex flex-col items-center mt-[10vh]">
+        <div className="flex flex-col items-center mt-[1vh]">
+            <Lottie
+            animationData={animationData} 
+            />
             <h2 className="mb-5 text-gray-900 font-mono font-bold text-xl">Sign Up</h2>
             <form onSubmit={submitHandler}>
                 <input type="text" className="w-full px-6 py-3 mb-2 border border-slate-600 rounded-lg font-medium " placeholder="Name"

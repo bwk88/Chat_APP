@@ -3,12 +3,17 @@ import NavBar from "../components/NavBar";
 import MyChats from "../components/myChats/MyChats";
 import ChatBox from "../Components/ChatBox/ChatBox";
 import { ChatState } from "../Context/ChatProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ChatPage = () => {
   const { user } = ChatState();
   // console.log(user.name);
   const [fetchAgain,setFetchAgain] = useState(); //to keep track of all the chats
+  
+  // useEffect(()=>{
+  //   const logedIn = JSON.parse(localStorage.getItem('userInfo'))
+  //   setUser(logedIn)
+  // },[])
 
   return (
     // <div className="flex items-end"> 
@@ -16,7 +21,7 @@ const ChatPage = () => {
         {/* hello */}
         {user
          && 
-         <NavBar />
+         <NavBar fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
         }
 
         <div className="flex justify-between w-full p-5  ">

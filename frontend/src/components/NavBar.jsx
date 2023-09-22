@@ -7,19 +7,23 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const  NavBar = () => {
   const { user } = ChatState();
     const history = useHistory();
+    // console.log(user.name)
 
 
     const logoutHandler = () =>{
       localStorage.removeItem("userInfo");
+      // setUser(null)
       history.push("/");
     }
 
+    
 
   return (
     <div className="flex items-center justify-between bg-[#44d7b6] text-black w-full p-2 ">
           <SideBar />
 
-        <h1>{user.name}</h1>
+        <h1 className="  text-lg" >{user.name.toUpperCase()}</h1>
+        
 
         <button onClick={logoutHandler}>
           Logout

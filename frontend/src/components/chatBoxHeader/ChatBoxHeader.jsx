@@ -1,7 +1,7 @@
 import { ChatState } from '../../Context/ChatProvider'
 import PreviewIcon from '@mui/icons-material/Preview';
 import MyModal from '../modal/MyModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
     const { user, selectedChat, setSelectedChat} = ChatState();
@@ -10,7 +10,9 @@ const ChatBoxHeader = ({ fetchAgain,setFetchAgain }) => {
 
     const handleClose = () => setInfo(!info);
     // console.log(selectedChat)
+    useEffect(()=>{
 
+    },[fetchAgain])
     
     
   return (

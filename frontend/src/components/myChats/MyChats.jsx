@@ -9,7 +9,7 @@ const MyChats = ({ fetchAgain }) => {
   const [loggedUser,setLoggedUser] = useState();
   const { user,selectedChat, setSelectedChat,chats,setChats,showModal,setShowModal } = ChatState();
 
-  // console.log(chats)
+  // console.log(selectedChat)
   const handleClose = () => setShowModal(!showModal);
 
   const fetchChats = async () =>{
@@ -52,7 +52,7 @@ const MyChats = ({ fetchAgain }) => {
       <>
       {/* <ScrollableFeed > */}
         <div className=" text-black flex-col ">
-          {chats && chats.map((chat)=>(
+          {chats && loggedUser && chats.map((chat)=>(
             
 
             <div onClick={()=>setSelectedChat(chat)}

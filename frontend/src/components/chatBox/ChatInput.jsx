@@ -119,6 +119,7 @@ const ChatInput = ({fetchAgain, setFetchAgain}) => {
                 animationData={animationData}
             /> }
         <input value={newMessage}
+        placeholder="Start chatting.."
         onChange={typingHandler}
          className="bg-[#e0e0e0] border-0.5 rounded-3xl border-black">
         </input>

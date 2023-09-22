@@ -65,9 +65,9 @@ const SideBar = () => {
     <>
         <div className={`${flag ? ' w-80': 'w-[60px]'} flex-col justify-center items-center duration-500 top-0 left-0 fixed  bg-[#262626] h-full  `}>
                 <img src=" assets/left.png" alt="" className={` 
-                ${flag  && `rotate-180` } duration-700 
+                ${flag ? `rotate-0`: 'rotate-180' } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4
-                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10 rotate-0 hover:scale-110 hover:border-[0px]`}
+                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10  hover:scale-110 hover:border-[0px]`}
                 onClick={()=>setFlag(!flag)} > 
                 
                 </img> 
@@ -95,7 +95,7 @@ const SideBar = () => {
             </div>
 
         </div>
-        <PersonSearchOutlinedIcon />
+        <PersonSearchOutlinedIcon className=" cursor-pointer" onClick={()=>setFlag(!flag)} />
         {/* <button onClick={()=>setFlag(!flag)}>Search</button> */}
     </>
 

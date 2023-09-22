@@ -1,6 +1,8 @@
 import  { useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Lottie from 'lottie-react';
+import animationData from '../components/animations/login.json'
 
 const LoginPage = () => {
     // e.preventDefault();
@@ -54,6 +56,10 @@ const LoginPage = () => {
     
         <div className="w-full flex items-center justify-center lg:w-full">
             <div className="max-w-[280px] mx-auto">
+                {/* <Lottie
+                style={{width:'10px'}}
+                animationData={animationData} 
+                /> */}
                 <h2 
                 className="mb-5 text-gray-900 
                 font-mono font-bold
