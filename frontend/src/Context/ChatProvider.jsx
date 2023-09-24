@@ -8,8 +8,6 @@ const ChatProvider = ({children}) => {
     const [selectedChat,setSelectedChat] = useState();
     const [chats,setChats] = useState([]);
     const [showModal,setShowModal] = useState(false);
-    // console.log(user)
-    // console.log(selectedChat)
 
     const history = useHistory();
 
@@ -18,12 +16,12 @@ const ChatProvider = ({children}) => {
         setUser(userInfo);
         
         if(!userInfo) {
-            console.log(userInfo);
+            // console.log(userInfo);
             history.push('/')
         }
     },[history]);
 
-    return <ChatContext.Provider value={{user,setUser,selectedChat,setSelectedChat,chats,setChats,showModal,setShowModal}}> {children}  </ChatContext.Provider>;
+    return <ChatContext.Provider value={{user,setUser,selectedChat,setSelectedChat,chats,setChats,showModal,setShowModal}}> {children} </ChatContext.Provider>;
 }
 
 export const ChatState = () =>{

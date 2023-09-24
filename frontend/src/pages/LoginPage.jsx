@@ -1,19 +1,20 @@
-import  { useState } from 'react'
+import  { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Lottie from 'lottie-react';
 import animationData from '../components/animations/login.json'
+import { ChatState } from '../Context/ChatProvider';
 
 const LoginPage = () => {
-    // e.preventDefault();
-    // const [name,setName] = useState("");
+
     const [email,setEmail] = useState("");
-    // const [confirmpassword,setConfirmpassword] = useState("");
+    
     const [password,setPassword] = useState("");
-    // const [pic,setPic] = useState("");
+   
     const history = useHistory();
 
-    // console.log(name);
+    const { setUser } = ChatState();
+
     const submitHandler = async (e) =>{
         e.preventDefault();
         
@@ -21,8 +22,6 @@ const LoginPage = () => {
             return alert("please fillup all feilds"); 
         }
 
-        // if(password != confirmpassword) return alert("password error")
-        // console.log(password)
 
         try {
             const config = {
@@ -33,10 +32,11 @@ const LoginPage = () => {
 
             const { data } = await axios.post("http://localhost:5000/api/user/login",{email,password},config)
 
-            // console.log(data);
+      
 
             alert("Registration Successful");
             localStorage.setItem("userInfo",JSON.stringify(data));
+            setUser(data)
             history.push("/chats")
             
         } catch (error) {
@@ -55,9 +55,9 @@ const LoginPage = () => {
 
     
         <div className="w-full flex items-center justify-center lg:w-full">
-            <div className="max-w-[280px] mx-auto">
+            <div className="max-w-[280px] flex-col items-center mx-auto">
                 {/* <Lottie
-                style={{width:'10px'}}
+                style={{width:'150px', position:"relative" , left:"3rem"}}
                 animationData={animationData} 
                 /> */}
                 <h2 

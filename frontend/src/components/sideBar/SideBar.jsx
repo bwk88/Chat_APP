@@ -67,7 +67,7 @@ const SideBar = () => {
                 <img src=" assets/left.png" alt="" className={` 
                 ${flag ? `rotate-0`: 'rotate-180' } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4
-                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10  hover:scale-110 hover:border-[0px]`}
+                top-1/2 rounded-full border-[5.5px] border-[#262626] z-10`}
                 onClick={()=>setFlag(!flag)} > 
                 
                 </img> 

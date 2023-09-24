@@ -7,13 +7,8 @@ import { useEffect, useState } from "react";
 
 const ChatPage = () => {
   const { user } = ChatState();
-  // console.log(user.name);
+  // console.log(user)
   const [fetchAgain,setFetchAgain] = useState(); //to keep track of all the chats
-  
-  // useEffect(()=>{
-  //   const logedIn = JSON.parse(localStorage.getItem('userInfo'))
-  //   setUser(logedIn)
-  // },[])
 
   return (
     // <div className="flex items-end"> 

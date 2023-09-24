@@ -3,13 +3,15 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Lottie from 'lottie-react';
 import animationData from '../components/animations/ChatBubble.json'
+import ChatProvider from '../Context/ChatProvider';
 
 const SignUp = () => {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [confirmpassword,setConfirmpassword] = useState("");
     const [password,setPassword] = useState("");
-    // const [pic,setPic] = useState("");
+
+    
     const history = useHistory();
 
     // console.log(name);
@@ -29,7 +31,7 @@ const SignUp = () => {
             }
 
             const { data } = await axios.post("http://localhost:5000/api/user",{name,email,password},config)
-
+            // setUser(data);
             alert("Registration Successful");
             localStorage.setItem("userInfo",JSON.stringify(data));
             history.push("/chats")
