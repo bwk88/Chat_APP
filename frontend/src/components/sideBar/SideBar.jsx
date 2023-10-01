@@ -27,7 +27,7 @@ const SideBar = () => {
                 }
             }
 
-            const { data } = await axios.get(`http://localhost:5000/api/user?search=${search}`,config)
+            const { data } = await axios.get(`https://chat-app-back-h73d.onrender.com/api/user?search=${search}`,config)
 
            
 
@@ -49,7 +49,8 @@ const SideBar = () => {
                 }
             }
 
-            const { data } = await axios.post('http://localhost:5000/api/chat', {userId},config);
+            const { data } = await axios.post('https://chat-app-back-h73d.onrender.com/api/chat', {userId},config);
+            // console.log("render API called",data)
 
             if(!chats.find((c) => c.id === data._id)) setChats([data,...chats]); 
 
@@ -63,7 +64,7 @@ const SideBar = () => {
     }
   return (
     <>
-        <div className={`${flag ? ' w-80': 'w-[60px]'} flex-col justify-center items-center duration-500 top-0 left-0 fixed  bg-[#262626] h-full  `}>
+        <div className={`${flag ? ' w-80': 'w-[60px]'} flex-col justify-center items-center duration-500 top-0 left-0 fixed  bg-[#262626] h-full z-50`}>
                 <img src=" assets/left.png" alt="" className={` 
                 ${flag ? `rotate-0`: 'rotate-180' } duration-700 
                 absolute w-[3.5rem] h-[3.5rem] -right-4

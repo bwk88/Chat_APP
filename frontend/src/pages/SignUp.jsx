@@ -30,7 +30,7 @@ const SignUp = () => {
                 }
             }
 
-            const { data } = await axios.post("http://localhost:5000/api/user",{name,email,password},config)
+            const { data } = await axios.post("https://chat-app-back-h73d.onrender.com/api/user",{name,email,password},config)
             // setUser(data);
             alert("Registration Successful");
             localStorage.setItem("userInfo",JSON.stringify(data));

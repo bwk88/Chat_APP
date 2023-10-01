@@ -21,8 +21,8 @@ const MyChats = ({ fetchAgain }) => {
           }
       }
 
-      const { data } = await axios.get('http://localhost:5000/api/chat',config);
-      // console.log(data);
+      const { data } = await axios.get('https://chat-app-back-h73d.onrender.com/api/chat',config);
+      console.log(data);
       setChats(data);
 
     } catch (error) {
@@ -38,7 +38,7 @@ const MyChats = ({ fetchAgain }) => {
 
   return (
     <div
-    className={` ${selectedChat ? `` : `` } overflow-auto flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl  bottom-2 border-black `}>
+    className={` md:flex overflow-auto flex-col bg-[#f9f9f9] h-[90vh] w-[30%] shadow-2xl rounded-xl  bottom-2 border-black `}>
 
       <div className=" flex justify-between p-2">
 

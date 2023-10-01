@@ -6,7 +6,7 @@ import io from 'socket.io-client'
 import Lottie from 'lottie-react'
 import animationData from '../animations/typing.json'
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://chat-app-back-h73d.onrender.com";
 var socket,selectedChatCompare;
 
 const ChatInput = ({fetchAgain, setFetchAgain}) => {
@@ -38,7 +38,7 @@ const ChatInput = ({fetchAgain, setFetchAgain}) => {
                 }
             }
 
-            const { data } = await axios.get(`http://localhost:5000/api/message/${selectedChat._id}`,config)
+            const { data } = await axios.get(`https://chat-app-back-h73d.onrender.com/api/message/${selectedChat._id}`,config)
 
             // console.log(selectedChat)
             setMessages(data);
@@ -65,7 +65,7 @@ const ChatInput = ({fetchAgain, setFetchAgain}) => {
                 
                 
 
-                const { data } = await axios.post('http://localhost:5000/api/message',{
+                const { data } = await axios.post('https://chat-app-back-h73d.onrender.com/api/message',{
                     content:newMessage,
                     chatId:selectedChat._id,
                 },config);

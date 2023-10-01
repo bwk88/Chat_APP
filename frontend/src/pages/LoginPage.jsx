@@ -30,7 +30,7 @@ const LoginPage = () => {
                 }
             }
 
-            const { data } = await axios.post("http://localhost:5000/api/user/login",{email,password},config)
+            const { data } = await axios.post("https://chat-app-back-h73d.onrender.com/api/user/login",{email,password},config)
 
       
 
